@@ -1,0 +1,202 @@
+@import url("https://rsms.me/inter/inter.css");
+@import "./colors";
+@import "./variables";
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  width: $content-width-mobile;
+  margin: auto;
+
+  @media (min-width: $tablet) {
+    width: $content-width-tablet;
+  }
+}
+
+h1,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+.screen-reader {
+  display: none;
+}
+
+.nav-bar {
+  background-color: $color-primary-blue;
+  display: flex;
+  align-items: center;
+
+  > .container {
+    width: $content-width-mobile;
+    margin: auto;
+
+    @media (min-width: $tablet) {
+      width: $content-width-tablet;
+    }
+  }
+}
+
+.logo {
+  height: 28.6px;
+  margin: 12px 0;
+
+  @media (min-width: $tablet) {
+    height: 35.2px;
+  }
+}
+
+.breadcrumbs {
+  > ul {
+    padding: 0;
+    margin: 21px 0;
+    list-style: none;
+    display: flex;
+  }
+}
+
+.recipes-container {
+  display: grid;
+  grid-gap: 12px;
+
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "recipe-calculator recipe-calculator recipe-ingredients" "recipe-description recipe-description recipe-ingredients";
+    grid-gap: 30px;
+  }
+}
+
+.servings {
+  background-color: $color-primary-blue;
+  color: $color-white;
+  border-radius: 8px;
+  padding: 8px 15px;
+
+  > h1 {
+    margin-top: 5px;
+    font-weight: $font-weight-bold;
+
+    @media (min-width: $tablet) {
+      font-size: 36px;
+    }
+  }
+
+  .input-container {
+    display: grid;
+    margin-top: 28px;
+
+    > input {
+      border-radius: 6px;
+      border: none;
+      height: 48px;
+      background-color: $color-off-white;
+      color: $color-light-grey;
+      padding-left: 15px;
+      font-size: 16px;
+    }
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 36px;
+
+      .servings-cooking-time {
+        margin: 0 0 0 30px;
+      }
+    }
+  }
+
+  .btn-calculate {
+    padding: 14px 18px;
+    border: 1px solid $color-white;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: $color-primary-blue;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 14px;
+
+    @media (min-width: $tablet) {
+      width: unset;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    grid-area: recipe-calculator;
+    padding: 34px 92px;
+  }
+}
+
+.ingredients {
+  background-color: $color-primary-blue;
+  color: $color-white;
+  border: 1px solid $color-white;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 15px;
+  overflow-y: scroll;
+  height: 205px;
+
+  > h1 {
+    margin-top: 5px;
+    font-weight: $font-weight-bold;
+  }
+
+  > dl {
+    > dd {
+      margin-bottom: 14px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid $color-white;
+    border-radius: 2px;
+  }
+
+  @media (min-width: $tablet) {
+    grid-area: recipe-ingredients;
+    height: 100%;
+    padding: 34px 0 0 92px;
+  }
+}
+
+.description {
+  > .container {
+    > header {
+      font-size: 24px;
+      font-weight: $font-weight-bold;
+      color: $color-primary-blue;
+
+      @media (min-width: $tablet) {
+        font-size: 36px;
+      }
+    }
+
+    > ol {
+      padding-left: 18px;
+
+      > li {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media (min-width: $tablet) {
+      padding: 0 92px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    grid-area: recipe-description;
+  }
+}
